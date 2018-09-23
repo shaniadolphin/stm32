@@ -1,0 +1,1852 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="vsbuild">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdstm32f407_ucos.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi %xup -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdstm32f407_ucos.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi %xup -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters=""/>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="Libraries">
+			<Folder Name="CMSIS">
+				<Folder Name="Device">
+					<Folder Name="ST">
+						<Folder Name="STM32F0xx">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/arm/startup_stm32f030x6.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/arm/startup_stm32f030x8.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/arm/startup_stm32f0xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/arm/startup_stm32f0xx_ld.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/gcc_ride7/startup_stm32f0xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/gcc_ride7/startup_stm32f0xx_ld.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/iar/startup_stm32f030x6.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/iar/startup_stm32f030x8.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/iar/startup_stm32f0xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/iar/startup_stm32f0xx_ld.s"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/TrueSTUDIO/startup_stm32f030x6.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/TrueSTUDIO/startup_stm32f030x8.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/TrueSTUDIO/startup_stm32f0xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/TrueSTUDIO/startup_stm32f0xx_ld.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32F10x">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F10x/Include/stm32f10x.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F10x/Include/system_stm32f10x.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_cl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_hd_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_ld.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_ld_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_md_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/arm/startup_stm32f10x_xl.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_cl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_hd_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_ld.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_ld_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_md_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/gcc_ride7/startup_stm32f10x_xl.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_cl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_hd_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_ld.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_ld_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_md_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/iar/startup_stm32f10x_xl.s"/>
+									</Folder>
+									<Folder Name="TASKING">
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TASKING/cstart_thumb2.asm"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_cl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_hd_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_ld.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_ld_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_md_vl.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/TrueSTUDIO/startup_stm32f10x_xl.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F10x/Source/Templates/system_stm32f10x.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32F2xx">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Include/stm32f2xx.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Include/system_stm32f2xx.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/arm/startup_stm32f2xx.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/gcc_ride7/startup_stm32f2xx.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/iar/startup_stm32f2xx.s"/>
+									</Folder>
+									<Folder Name="TASKING">
+										<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/TASKING/cstart_thumb2.asm"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/TrueSTUDIO/startup_stm32f2xx.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/system_stm32f2xx.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32F30x">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F30x/Include/stm32f30x.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F30x/Include/system_stm32f30x.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/arm/startup_stm32f30x.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/gcc_ride7/startup_stm32f30x.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/iar/startup_stm32f30x.s"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/TrueSTUDIO/startup_stm32f30x.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32F37x">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F37x/Include/stm32f37x.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F37x/Include/system_stm32f37x.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F37x/Source/Templates/arm/startup_stm32f37x.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F37x/Source/Templates/gcc_ride7/startup_stm32f37x.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F37x/Source/Templates/iar/startup_stm32f37x.s"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F37x/Source/Templates/TrueSTUDIO/startup_stm32f37x.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F37x/Source/Templates/system_stm32f37x.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32F4xx">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f401xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f40_41xxx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f40xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f427_437xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f427x.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f429_439xx.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f401xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f40_41xxx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f40xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f427_437xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f427x.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc_ride7/startup_stm32f429_439xx.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f401xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f40_41xxx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f40xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f427_437xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f427x.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/iar/startup_stm32f429_439xx.s"/>
+									</Folder>
+									<Folder Name="TASKING">
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TASKING/cstart_thumb2.asm"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f401xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f40_41xxx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f40xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f427_437xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f427xx.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f429_439xx.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="STM32L1xx">
+							<Folder Name="Include">
+								<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Include/stm32l1xx.h"/>
+								<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Include/system_stm32l1xx.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<Folder Name="arm">
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/arm/startup_stm32l1xx_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/arm/startup_stm32l1xx_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/arm/startup_stm32l1xx_mdp.s"/>
+									</Folder>
+									<Folder Name="gcc_ride7">
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/gcc_ride7/startup_stm32l1xx_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/gcc_ride7/startup_stm32l1xx_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/gcc_ride7/startup_stm32l1xx_mdp.s"/>
+									</Folder>
+									<Folder Name="iar">
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/iar/startup_stm32l1xx_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/iar/startup_stm32l1xx_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/iar/startup_stm32l1xx_mdp.s"/>
+									</Folder>
+									<Folder Name="TASKING">
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/TASKING/cstart_thumb2.asm"/>
+									</Folder>
+									<Folder Name="TrueSTUDIO">
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/TrueSTUDIO/startup_stm32l1xx_hd.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/TrueSTUDIO/startup_stm32l1xx_md.s"/>
+										<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/TrueSTUDIO/startup_stm32l1xx_mdp.s"/>
+									</Folder>
+									<F N="Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/system_stm32l1xx.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="DSP_Lib">
+					<Folder Name="Source">
+						<Folder Name="BasicMathFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q7.c"/>
+						</Folder>
+						<Folder Name="CommonTables">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c"/>
+						</Folder>
+						<Folder Name="ComplexMathFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c"/>
+						</Folder>
+						<Folder Name="ControllerFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_q31.c"/>
+						</Folder>
+						<Folder Name="FastMathFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q31.c"/>
+						</Folder>
+						<Folder Name="FilteringFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q31.c"/>
+						</Folder>
+						<Folder Name="MatrixFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q31.c"/>
+						</Folder>
+						<Folder Name="StatisticsFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q31.c"/>
+						</Folder>
+						<Folder Name="SupportFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_float.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q7.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_float.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q31.c"/>
+						</Folder>
+						<Folder Name="TransformFunctions">
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal2.S"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix8_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q31.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q15.c"/>
+							<F N="Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q31.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="Include">
+					<F N="Libraries/CMSIS/Include/arm_common_tables.h"/>
+					<F N="Libraries/CMSIS/Include/arm_const_structs.h"/>
+					<F N="Libraries/CMSIS/Include/arm_math.h"/>
+					<F N="Libraries/CMSIS/Include/core_cm0.h"/>
+					<F N="Libraries/CMSIS/Include/core_cm0plus.h"/>
+					<F N="Libraries/CMSIS/Include/core_cm3.h"/>
+					<F N="Libraries/CMSIS/Include/core_cm4.h"/>
+					<F N="Libraries/CMSIS/Include/core_cm4_simd.h"/>
+					<F N="Libraries/CMSIS/Include/core_cmFunc.h"/>
+					<F N="Libraries/CMSIS/Include/core_cmInstr.h"/>
+					<F N="Libraries/CMSIS/Include/core_sc000.h"/>
+					<F N="Libraries/CMSIS/Include/core_sc300.h"/>
+				</Folder>
+				<Folder Name="RTOS">
+					<F N="Libraries/CMSIS/RTOS/cmsis_os.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="CMSIS DSP_Library">
+				<Folder Name="inc">
+					<F N="Libraries/CMSIS DSP_Library/inc/arm_common_tables.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/arm_math.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/core_cm4.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/core_cm4_simd.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/core_cmFunc.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/core_cmInstr.h"/>
+					<F N="Libraries/CMSIS DSP_Library/inc/math_helper.h"/>
+				</Folder>
+				<Folder Name="src">
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_init_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_init_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_init_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cfft_radix4_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_cmplx_mag_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_common_tables.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_init_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_init_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_init_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_dct4_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_fft_bin_data.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_max_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_init_f32.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_init_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_init_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_q15.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/arm_rfft_q31.c"/>
+					<F N="Libraries/CMSIS DSP_Library/src/math_helper.c"/>
+				</Folder>
+				<F N="Libraries/CMSIS DSP_Library/fft.c"/>
+				<F N="Libraries/CMSIS DSP_Library/fft.h"/>
+				<F N="Libraries/CMSIS DSP_Library/iir.c"/>
+				<F N="Libraries/CMSIS DSP_Library/iir.h"/>
+			</Folder>
+			<Folder Name="STM32_USB_Device_Library">
+				<Folder Name="Class">
+					<Folder Name="audio">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_Device_Library/Class/audio/inc/usbd_audio_core.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/audio/inc/usbd_audio_out_if.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_Device_Library/Class/audio/src/usbd_audio_core.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/audio/src/usbd_audio_out_if.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="cdc">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_if_template.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_if_template.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="dfu">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/inc/usbd_dfu_core.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/inc/usbd_dfu_mal.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/inc/usbd_flash_if.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/inc/usbd_mem_if_template.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/inc/usbd_otp_if.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/src/usbd_dfu_core.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/src/usbd_dfu_mal.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/src/usbd_flash_if.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/src/usbd_mem_if_template.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/dfu/src/usbd_otp_if.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="hid">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_Device_Library/Class/hid/inc/usbd_hid_core.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="msc">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/inc/usbd_msc_bot.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/inc/usbd_msc_core.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/inc/usbd_msc_data.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/inc/usbd_msc_mem.h"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/inc/usbd_msc_scsi.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/src/usbd_msc_bot.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/src/usbd_msc_core.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/src/usbd_msc_data.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/src/usbd_msc_scsi.c"/>
+							<F N="Libraries/STM32_USB_Device_Library/Class/msc/src/usbd_storage_template.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="Core">
+					<Folder Name="inc">
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_conf_template.h"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_core.h"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_def.h"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_ioreq.h"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_req.h"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/inc/usbd_usr.h"/>
+					</Folder>
+					<Folder Name="src">
+						<F N="Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c"/>
+						<F N="Libraries/STM32_USB_Device_Library/Core/src/usbd_req.c"/>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32_USB_HOST_Library">
+				<Folder Name="Class">
+					<Folder Name="HID">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/inc/usbh_hid_core.h"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/inc/usbh_hid_keybd.h"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/inc/usbh_hid_mouse.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/src/usbh_hid_core.c"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/src/usbh_hid_keybd.c"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/HID/src/usbh_hid_mouse.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="MSC">
+						<Folder Name="inc">
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/inc/usbh_msc_bot.h"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/inc/usbh_msc_core.h"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/inc/usbh_msc_scsi.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/src/usbh_msc_bot.c"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/src/usbh_msc_core.c"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/src/usbh_msc_fatfs.c"/>
+							<F N="Libraries/STM32_USB_HOST_Library/Class/MSC/src/usbh_msc_scsi.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="Core">
+					<Folder Name="inc">
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_conf_template.h"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_core.h"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_def.h"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_hcs.h"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_ioreq.h"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/inc/usbh_stdreq.h"/>
+					</Folder>
+					<Folder Name="src">
+						<F N="Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/src/usbh_ioreq.c"/>
+						<F N="Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c"/>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32_USB_OTG_Driver">
+				<Folder Name="inc">
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_bsp.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_conf_template.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_core.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_dcd.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_dcd_int.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_defines.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_hcd.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_hcd_int.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_otg.h"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/inc/usb_regs.h"/>
+				</Folder>
+				<Folder Name="src">
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_bsp_template.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_core.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_dcd.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_dcd_int.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_hcd.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_hcd_int.c"/>
+					<F N="Libraries/STM32_USB_OTG_Driver/src/usb_otg.c"/>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32F407_FFTDSP库_ADC+DMA">
+				<Folder Name="CMSIS DSP_Library">
+					<Folder Name="inc">
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/arm_common_tables.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/arm_math.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/core_cm4.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/core_cm4_simd.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/core_cmFunc.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/core_cmInstr.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/inc/math_helper.h"/>
+					</Folder>
+					<Folder Name="src">
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_init_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_init_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_init_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cfft_radix4_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_cmplx_mag_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_common_tables.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_init_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_init_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_init_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_dct4_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_fft_bin_data.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_max_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_init_f32.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_init_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_init_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_q15.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/arm_rfft_q31.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/CMSIS DSP_Library/src/math_helper.c"/>
+					</Folder>
+				</Folder>
+				<Folder Name="EWAEM">
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/EWAEM/startup_stm32f4xx.s"/>
+				</Folder>
+				<Folder Name="Libraries">
+					<Folder Name="CMSIS">
+						<Folder Name="DSP_Lib">
+							<Folder Name="Examples">
+								<Folder Name="arm_class_marks_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<Folder Name="GCC">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/GCC/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/GCC/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/GCC/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/arm_class_marks_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_class_marks_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_convolution_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<Folder Name="GCC">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/arm_convolution_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_convolution_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_dotproduct_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/arm_dotproduct_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_fft_bin_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/startup_ARMCM4.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/stm32f4xx.h"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/arm_fft_bin_data.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/arm_fft_bin_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/stm32f4xx.h"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/system_ARMCM4.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/system_stm32f4xx.h"/>
+								</Folder>
+								<Folder Name="arm_fir_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/arm_fir_data.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/arm_fir_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_fir_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_graphic_equalizer_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/arm_graphic_equalizer_data.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/arm_graphic_equalizer_example_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_linear_interp_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/arm_linear_interp_data.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/arm_linear_interp_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_matrix_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/arm_matrix_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_matrix_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_signal_converge_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/arm_signal_converge_data.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/arm_signal_converge_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_sin_cos_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/arm_sin_cos_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="arm_variance_example">
+									<Folder Name="ARM">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/ARM/startup_ARMCM0.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/ARM/startup_ARMCM3.s"/>
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/ARM/startup_ARMCM4.s"/>
+									</Folder>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/arm_variance_example_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/system_ARMCM0.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/system_ARMCM3.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/arm_variance_example/system_ARMCM4.c"/>
+								</Folder>
+								<Folder Name="Common">
+									<Folder Name="Include">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/Common/Include/math_helper.h"/>
+									</Folder>
+									<Folder Name="Source">
+										<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Examples/Common/Source/math_helper.c"/>
+									</Folder>
+								</Folder>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="BasicMathFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q7.c"/>
+								</Folder>
+								<Folder Name="CommonTables">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c"/>
+								</Folder>
+								<Folder Name="ComplexMathFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c"/>
+								</Folder>
+								<Folder Name="ControllerFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_q31.c"/>
+								</Folder>
+								<Folder Name="FastMathFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q31.c"/>
+								</Folder>
+								<Folder Name="FilteringFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q31.c"/>
+								</Folder>
+								<Folder Name="MatrixFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q31.c"/>
+								</Folder>
+								<Folder Name="StatisticsFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q31.c"/>
+								</Folder>
+								<Folder Name="SupportFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_float.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q7.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_float.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q31.c"/>
+								</Folder>
+								<Folder Name="TransformFunctions">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q31.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q15.c"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q31.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<Folder Name="Include">
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/arm_common_tables.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/arm_math.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cm0.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cm3.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cm4.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cm4_simd.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cmFunc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/Include/core_cmInstr.h"/>
+						</Folder>
+						<Folder Name="ST">
+							<Folder Name="STM32F4xx">
+								<Folder Name="Include">
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/ST/STM32F4xx/Include/stm32f4xx.h"/>
+									<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/CMSIS/ST/STM32F4xx/Include/system_stm32f4xx.h"/>
+								</Folder>
+							</Folder>
+						</Folder>
+					</Folder>
+					<Folder Name="STM32F4xx_StdPeriph_Driver">
+						<Folder Name="inc">
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_can.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_crc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_cryp.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dbgmcu.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dcmi.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_exti.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fsmc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_hash.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_i2c.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_iwdg.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_pwr.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rng.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rtc.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sdio.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_spi.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_syscfg.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h"/>
+						</Folder>
+						<Folder Name="src">
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c"/>
+							<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="User">
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/FFT.c"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/FFT.h"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/main.c"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/stm32f4xx_conf.h"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/stm32f4xx_it.c"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/stm32f4xx_it.h"/>
+					<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/User/system_stm32f4xx.c"/>
+				</Folder>
+				<Folder Name="Utilities">
+					<Folder Name="STM32F4-Discovery">
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/pdm_filter.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery_audio_codec.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery_audio_codec.h"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery_lis302dl.c"/>
+						<F N="Libraries/STM32F407_FFTDSP库_ADC+DMA/Utilities/STM32F4-Discovery/stm32f4_discovery_lis302dl.h"/>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32F4x7_ETH_Driver">
+				<Folder Name="inc">
+					<F N="Libraries/STM32F4x7_ETH_Driver/inc/stm32f4x7_eth.h"/>
+					<F N="Libraries/STM32F4x7_ETH_Driver/inc/stm32f4x7_eth_conf_template.h"/>
+				</Folder>
+				<Folder Name="src">
+					<F N="Libraries/STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c"/>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32F4xx_StdPeriph_Driver">
+				<Folder Name="inc">
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_can.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_crc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_cryp.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dbgmcu.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dcmi.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma2d.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_exti.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fmc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fsmc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_hash.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_i2c.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_iwdg.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_ltdc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_pwr.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rng.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rtc.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sai.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sdio.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_spi.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_syscfg.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h"/>
+				</Folder>
+				<Folder Name="src">
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c"/>
+					<F N="Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.c"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="Project">
+			<Folder Name="MDK-ARM(uV4)">
+				<Folder Name="RTE">
+					<F N="Project/MDK-ARM(uV4)/RTE/RTE_Components.h"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="uCOS-III">
+			<Folder Name="uC-CPU">
+				<Folder Name="ARM-Cortex-M4">
+					<Folder Name="GNU">
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/GNU/cpu.h"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/GNU/cpu_a.asm"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.c"/>
+					</Folder>
+					<Folder Name="IAR">
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/IAR/cpu.h"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/IAR/cpu_a.asm"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/IAR/cpu_c.c"/>
+					</Folder>
+					<Folder Name="RealView">
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/RealView/cpu.h"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/RealView/cpu_a.asm"/>
+						<F N="uCOS-III/uC-CPU/ARM-Cortex-M4/RealView/cpu_c.c"/>
+					</Folder>
+				</Folder>
+				<F N="uCOS-III/uC-CPU/cpu_core.c"/>
+				<F N="uCOS-III/uC-CPU/cpu_core.h"/>
+				<F N="uCOS-III/uC-CPU/cpu_def.h"/>
+			</Folder>
+			<Folder Name="uC-LIB">
+				<Folder Name="Ports">
+					<Folder Name="ARM-Cortex-M4">
+						<Folder Name="IAR">
+							<F N="uCOS-III/uC-LIB/Ports/ARM-Cortex-M4/IAR/lib_mem_a.asm"/>
+						</Folder>
+						<Folder Name="RealView">
+							<F N="uCOS-III/uC-LIB/Ports/ARM-Cortex-M4/RealView/lib_mem_a.asm"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<F N="uCOS-III/uC-LIB/lib_ascii.c"/>
+				<F N="uCOS-III/uC-LIB/lib_ascii.h"/>
+				<F N="uCOS-III/uC-LIB/lib_def.h"/>
+				<F N="uCOS-III/uC-LIB/lib_math.c"/>
+				<F N="uCOS-III/uC-LIB/lib_math.h"/>
+				<F N="uCOS-III/uC-LIB/lib_mem.c"/>
+				<F N="uCOS-III/uC-LIB/lib_mem.h"/>
+				<F N="uCOS-III/uC-LIB/lib_str.c"/>
+				<F N="uCOS-III/uC-LIB/lib_str.h"/>
+			</Folder>
+			<Folder Name="uC-Serial">
+				<Folder Name="Driver">
+					<Folder Name="ST">
+						<Folder Name="STM3240x">
+							<F N="uCOS-III/uC-Serial/Driver/ST/STM3240x/serial_bsp_stm3240x.c"/>
+							<F N="uCOS-III/uC-Serial/Driver/ST/STM3240x/serial_bsp_stm3240x.h"/>
+						</Folder>
+						<F N="uCOS-III/uC-Serial/Driver/ST/serial_drv_stm32.c"/>
+						<F N="uCOS-III/uC-Serial/Driver/ST/serial_drv_stm32.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="Line">
+					<F N="uCOS-III/uC-Serial/Line/serial_line_dflt.c"/>
+					<F N="uCOS-III/uC-Serial/Line/serial_line_dflt.h"/>
+					<F N="uCOS-III/uC-Serial/Line/serial_line_probe.c"/>
+					<F N="uCOS-III/uC-Serial/Line/serial_line_probe.h"/>
+					<F N="uCOS-III/uC-Serial/Line/serial_line_tty.c"/>
+					<F N="uCOS-III/uC-Serial/Line/serial_line_tty.h"/>
+				</Folder>
+				<Folder Name="OS">
+					<Folder Name="uCOS-III">
+						<F N="uCOS-III/uC-Serial/OS/uCOS-III/serial_os.c"/>
+					</Folder>
+					<F N="uCOS-III/uC-Serial/OS/serial_os.h"/>
+				</Folder>
+				<Folder Name="Source">
+					<F N="uCOS-III/uC-Serial/Source/serial.c"/>
+					<F N="uCOS-III/uC-Serial/Source/serial.h"/>
+					<F N="uCOS-III/uC-Serial/Source/serial_buf.c"/>
+					<F N="uCOS-III/uC-Serial/Source/serial_buf.h"/>
+					<F N="uCOS-III/uC-Serial/Source/serial_type.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="uCOS-III">
+				<Folder Name="Ports">
+					<Folder Name="ARM-Cortex-M4">
+						<Folder Name="Generic">
+							<Folder Name="GNU">
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu.h"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_a.asm"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_c.c"/>
+							</Folder>
+							<Folder Name="IAR">
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/IAR/os_cpu.h"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/IAR/os_cpu_a.asm"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/IAR/os_cpu_c.c"/>
+							</Folder>
+							<Folder Name="RealView">
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/RealView/os_cpu.h"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/RealView/os_cpu_a.asm"/>
+								<F N="uCOS-III/uCOS-III/Ports/ARM-Cortex-M4/Generic/RealView/os_cpu_c.c"/>
+							</Folder>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="Source">
+					<F N="uCOS-III/uCOS-III/Source/os.h"/>
+					<F N="uCOS-III/uCOS-III/Source/os_cfg_app.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_core.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_dbg.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_flag.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_int.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_mem.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_msg.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_mutex.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_pend_multi.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_prio.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_q.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_sem.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_stat.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_task.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_tick.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_time.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_tmr.c"/>
+					<F N="uCOS-III/uCOS-III/Source/os_type.h"/>
+					<F N="uCOS-III/uCOS-III/Source/os_var.c"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="User">
+			<Folder Name="bsp_stm32f4xx">
+				<Folder Name="inc">
+					<F N="User/bsp_stm32f4xx/inc/bsp_ad7606.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ads1256.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_bh1750.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_bmp085.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_camera.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_cpu_flash.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_dac8501.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_dht11.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ds18b20.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_dwt.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_eeprom_24xx.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_eth.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_fsmc_sram.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_gps.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_hmc5883l.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_i2c_gpio.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ir_decode.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_key.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_led.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_mg323.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_mpu6050.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_nand_flash.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_nor_flash.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_oled.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_os.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ps2.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ra8875_flash.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_ra8875_port.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_rtc.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_sdio_sd.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_si4730.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_spi_flash.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_tft_lcd.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_tim_pwm.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_timer.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_tm7705.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_touch.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_uart.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_uart_fifo.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_vs1053b.h"/>
+					<F N="User/bsp_stm32f4xx/inc/bsp_wm8978.h"/>
+					<F N="User/bsp_stm32f4xx/inc/LCD_RA8875.h"/>
+					<F N="User/bsp_stm32f4xx/inc/LCD_SPFD5420.h"/>
+					<F N="User/bsp_stm32f4xx/inc/复件 bsp_ra8875_flash.h"/>
+				</Folder>
+				<Folder Name="src">
+					<F N="User/bsp_stm32f4xx/src/bsp_ad7606.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ads1256.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_bh1750.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_bmp085.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_camera.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_cpu_flash.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_dac8501.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_dht11.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ds18b20.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_dwt.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_eeprom_24xx.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_eth(not use).c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_fsmc_sram.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_gps.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_hmc5883l.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_i2c_gpio.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ir_decode.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_key.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_led.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_mg323.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_mpu6050.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_nand_flash.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_nor_flash.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_oled.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_os.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_printf.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ps2.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ra8875_flash.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_ra8875_port.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_rtc.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_sdio_sd.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_si4730.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_spi_flash.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_tft_lcd.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_tim_pwm.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_timer.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_tm7705.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_touch.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_uart.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_uart_fifo.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_usb.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_vs1053b.c"/>
+					<F N="User/bsp_stm32f4xx/src/bsp_wm8978.c"/>
+					<F N="User/bsp_stm32f4xx/src/LCD_RA8875.c"/>
+					<F N="User/bsp_stm32f4xx/src/LCD_SPFD5420.c"/>
+				</Folder>
+				<F N="User/bsp_stm32f4xx/bsp.c"/>
+				<F N="User/bsp_stm32f4xx/bsp.h"/>
+				<F N="User/bsp_stm32f4xx/sheep.h"/>
+				<F N="User/bsp_stm32f4xx/stm32f4xx_assert.c"/>
+				<F N="User/bsp_stm32f4xx/stm32f4xx_conf.h"/>
+				<F N="User/bsp_stm32f4xx/stm32f4xx_it.c"/>
+				<F N="User/bsp_stm32f4xx/stm32f4xx_it.h"/>
+				<F N="User/bsp_stm32f4xx/system_stm32f4xx.c"/>
+			</Folder>
+			<Folder Name="lcd">
+				<F N="User/lcd/asc8x16.h"/>
+				<F N="User/lcd/ASCII12X24.h"/>
+				<F N="User/lcd/ASCII8X16.h"/>
+				<F N="User/lcd/FONT.h"/>
+				<F N="User/lcd/GB1616.h"/>
+				<F N="User/lcd/lcd.c"/>
+				<F N="User/lcd/LCD.h"/>
+			</Folder>
+			<F N="User/app_cfg.h"/>
+			<F N="User/app_serial.c"/>
+			<F N="User/app_serial.h"/>
+			<F N="User/asc8x16.h"/>
+			<F N="User/cpu_cfg.h"/>
+			<F N="User/includes.h"/>
+			<F N="User/lib_cfg.h"/>
+			<F N="User/main.c"/>
+			<F N="User/os_app_hooks.c"/>
+			<F N="User/os_app_hooks.h"/>
+			<F N="User/os_cfg.h"/>
+			<F N="User/os_cfg_app.h"/>
+			<F N="User/testFft.c"/>
+			<F N="User/testFft.h"/>
+		</Folder>
+	</Files>
+</Project>

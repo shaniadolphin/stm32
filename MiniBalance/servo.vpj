@@ -1,0 +1,371 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdservo.exe"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdservo.exe"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <CustomFolders>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+        </Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters=""/>
+    </CustomFolders>
+    <Files AutoFolders="DirectoryView">
+        <Folder Name="APP">
+            <Folder Name="RTE">
+                <F N="APP/RTE/RTE_Components.h"/>
+            </Folder>
+            <F N="APP/app.c"/>
+            <F N="APP/app_cfg.h"/>
+            <F N="APP/asc8x16.h"/>
+            <F N="APP/ASCII12X24.h"/>
+            <F N="APP/ASCII8X16.h"/>
+            <F N="APP/BinType.h"/>
+            <F N="APP/config.h"/>
+            <F N="APP/FONT.h"/>
+            <F N="APP/fsmc_sram.c"/>
+            <F N="APP/fsmc_sram.h"/>
+            <F N="APP/GB1616.h"/>
+            <F N="APP/globals.h"/>
+            <F N="APP/includes.h"/>
+            <F N="APP/lcd_dis24.c"/>
+            <F N="APP/lcd_dis24.H"/>
+            <F N="APP/msg.c"/>
+            <F N="APP/msg.h"/>
+            <F N="APP/oled.c"/>
+            <F N="APP/oled.h"/>
+            <F N="APP/os_cfg.h"/>
+            <F N="APP/paraDeal.c"/>
+            <F N="APP/paraDeal.h"/>
+            <F N="APP/spi.c"/>
+            <F N="APP/spi.h"/>
+            <F N="APP/SPI_int.c"/>
+            <F N="APP/stm32f10x_it.c"/>
+        </Folder>
+        <Folder Name="BSP">
+            <F N="BSP/bsp.c"/>
+            <F N="BSP/bsp.h"/>
+        </Folder>
+        <Folder Name="CM3">
+            <F N="CM3/core_cm3.c"/>
+            <F N="CM3/core_cm3.h"/>
+            <F N="CM3/stm32f10x.h"/>
+            <F N="CM3/system_stm32f10x.c"/>
+            <F N="CM3/system_stm32f10x.h"/>
+        </Folder>
+        <Folder Name="FWlib">
+            <Folder Name="inc">
+                <F N="FWlib/inc/misc.h"/>
+                <F N="FWlib/inc/stm32f10x_adc.h"/>
+                <F N="FWlib/inc/stm32f10x_bkp.h"/>
+                <F N="FWlib/inc/stm32f10x_can.h"/>
+                <F N="FWlib/inc/stm32f10x_cec.h"/>
+                <F N="FWlib/inc/stm32f10x_conf.h"/>
+                <F N="FWlib/inc/stm32f10x_crc.h"/>
+                <F N="FWlib/inc/stm32f10x_dac.h"/>
+                <F N="FWlib/inc/stm32f10x_dbgmcu.h"/>
+                <F N="FWlib/inc/stm32f10x_dma.h"/>
+                <F N="FWlib/inc/stm32f10x_exti.h"/>
+                <F N="FWlib/inc/stm32f10x_flash.h"/>
+                <F N="FWlib/inc/stm32f10x_fsmc.h"/>
+                <F N="FWlib/inc/stm32f10x_gpio.h"/>
+                <F N="FWlib/inc/stm32f10x_i2c.h"/>
+                <F N="FWlib/inc/stm32f10x_iwdg.h"/>
+                <F N="FWlib/inc/stm32f10x_pwr.h"/>
+                <F N="FWlib/inc/stm32f10x_rcc.h"/>
+                <F N="FWlib/inc/stm32f10x_rtc.h"/>
+                <F N="FWlib/inc/stm32f10x_sdio.h"/>
+                <F N="FWlib/inc/stm32f10x_spi.h"/>
+                <F N="FWlib/inc/stm32f10x_tim.h"/>
+                <F N="FWlib/inc/stm32f10x_usart.h"/>
+                <F N="FWlib/inc/stm32f10x_wwdg.h"/>
+            </Folder>
+            <Folder Name="SRC">
+                <F N="FWlib/SRC/misc.c"/>
+                <F N="FWlib/SRC/stm32f10x_adc.c"/>
+                <F N="FWlib/SRC/stm32f10x_bkp.c"/>
+                <F N="FWlib/SRC/stm32f10x_can.c"/>
+                <F N="FWlib/SRC/stm32f10x_cec.c"/>
+                <F N="FWlib/SRC/stm32f10x_crc.c"/>
+                <F N="FWlib/SRC/stm32f10x_dac.c"/>
+                <F N="FWlib/SRC/stm32f10x_dbgmcu.c"/>
+                <F N="FWlib/SRC/stm32f10x_dma.c"/>
+                <F N="FWlib/SRC/stm32f10x_exti.c"/>
+                <F N="FWlib/SRC/stm32f10x_flash.c"/>
+                <F N="FWlib/SRC/stm32f10x_fsmc.c"/>
+                <F N="FWlib/SRC/stm32f10x_gpio.c"/>
+                <F N="FWlib/SRC/stm32f10x_i2c.c"/>
+                <F N="FWlib/SRC/stm32f10x_iwdg.c"/>
+                <F N="FWlib/SRC/stm32f10x_pwr.c"/>
+                <F N="FWlib/SRC/stm32f10x_rcc.c"/>
+                <F N="FWlib/SRC/stm32f10x_rtc.c"/>
+                <F N="FWlib/SRC/stm32f10x_sdio.c"/>
+                <F N="FWlib/SRC/stm32f10x_spi.c"/>
+                <F N="FWlib/SRC/stm32f10x_tim.c"/>
+                <F N="FWlib/SRC/stm32f10x_usart.c"/>
+                <F N="FWlib/SRC/stm32f10x_wwdg.c"/>
+                <F N="FWlib/SRC/system_stm32f10x.c"/>
+            </Folder>
+        </Folder>
+        <Folder Name="Startup">
+            <F N="Startup/cortexm3_macro.s"/>
+            <F N="Startup/startup_stm32f10x_hd.s"/>
+            <F N="Startup/stm32f10x_startup.s"/>
+        </Folder>
+        <Folder Name="uCOS-II">
+            <Folder Name="Ports">
+                <F N="uCOS-II/Ports/os_cpu.h"/>
+                <F N="uCOS-II/Ports/os_cpu_a.asm"/>
+                <F N="uCOS-II/Ports/os_cpu_c.c"/>
+                <F N="uCOS-II/Ports/os_dbg.c"/>
+            </Folder>
+            <Folder Name="Source">
+                <F N="uCOS-II/Source/os_core.c"/>
+                <F N="uCOS-II/Source/os_flag.c"/>
+                <F N="uCOS-II/Source/os_mbox.c"/>
+                <F N="uCOS-II/Source/os_mem.c"/>
+                <F N="uCOS-II/Source/os_mutex.c"/>
+                <F N="uCOS-II/Source/os_q.c"/>
+                <F N="uCOS-II/Source/os_sem.c"/>
+                <F N="uCOS-II/Source/os_task.c"/>
+                <F N="uCOS-II/Source/os_time.c"/>
+                <F N="uCOS-II/Source/os_tmr.c"/>
+                <F N="uCOS-II/Source/ucos_ii.c"/>
+                <F N="uCOS-II/Source/ucos_ii.h"/>
+            </Folder>
+            <Folder Name="uC-CPU">
+                <F N="uCOS-II/uC-CPU/cpu.h"/>
+                <F N="uCOS-II/uC-CPU/cpu_a.asm"/>
+                <F N="uCOS-II/uC-CPU/cpu_core.c"/>
+                <F N="uCOS-II/uC-CPU/cpu_core.h"/>
+                <F N="uCOS-II/uC-CPU/cpu_def.h"/>
+            </Folder>
+            <Folder Name="uC-LIB">
+                <Folder Name="Ports">
+                    <Folder Name="ARM">
+                        <Folder Name="GNU">
+                            <F N="uCOS-II/uC-LIB/Ports/ARM/GNU/lib_mem_a.s"/>
+                        </Folder>
+                        <Folder Name="IAR">
+                            <F N="uCOS-II/uC-LIB/Ports/ARM/IAR/lib_mem_a.asm"/>
+                        </Folder>
+                    </Folder>
+                    <F N="uCOS-II/uC-LIB/Ports/lib_mem_a.asm"/>
+                </Folder>
+                <F N="uCOS-II/uC-LIB/lib_def.h"/>
+                <F N="uCOS-II/uC-LIB/lib_mem.c"/>
+                <F N="uCOS-II/uC-LIB/lib_mem.h"/>
+                <F N="uCOS-II/uC-LIB/lib_str.c"/>
+                <F N="uCOS-II/uC-LIB/lib_str.h"/>
+            </Folder>
+        </Folder>
+        <Folder Name="usart">
+            <F N="usart/Com.c"/>
+            <F N="usart/COM.H"/>
+        </Folder>
+    </Files>
+</Project>
